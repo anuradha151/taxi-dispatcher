@@ -34,8 +34,8 @@ app.post('/api/drivers/location', async (req, res) => {
 });
 
 
-app.get('/api/drivers/search', async (req, res) => {
-    const { latitude, longitude, radius } = req.query;
+app.post('/api/drivers/search', async (req, res) => {
+    const { latitude, longitude, radius } = req.body;
 
     console.log(latitude, longitude, radius);
 
