@@ -52,7 +52,13 @@ app.post('/api/drivers/search', async (req, res) => {
             }
         });
         
-        res.json(drivers);
+        const response = drivers.map(driver => ({
+            driverId: driver._id, // Assuming _id is the driver ID
+            latitude: driver.location.coordinates[1], // latitude
+            longitude: driver.location.coordinates[0] // longitude
+        }));
+
+        res.json(response);
         
     } catch (err) {
         console.error(err);
